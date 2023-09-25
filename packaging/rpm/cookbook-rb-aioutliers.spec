@@ -48,5 +48,5 @@ systemctl daemon-reload
 %doc
 
 %changelog
-* Mon Sept Miguel Álvarez <malvarez@redborder.com>- 0.0.1
-- first spec version
+* Mon Sep 25 2023 - Miguel Álvarez <malvarez@redborder.com> - 0.0.1-1
+- Initial spec version
