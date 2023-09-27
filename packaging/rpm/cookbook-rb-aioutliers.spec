@@ -1,12 +1,13 @@
 Name:     cookbook-rb-aioutliers
 Version:  %{__version}
 Release:  %{__release}%{?dist}
+BuildArch: noarch
+Summary: rbaioutliers cookbook to install and configure it in redborder environments
+
 
 License:  GNU AGPLv3
 URL:  https://github.com/redBorder/cookbook-rb-aioutliers
 Source0: %{name}-%{version}.tar.gz
-
-Summary: rbaioutliers cookbook to install and configure it in redborder environments
 
 %description
 %{summary}
