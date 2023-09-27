@@ -8,6 +8,7 @@ Summary: rbaioutliers cookbook to install and configure it in redborder environm
 License:  GNU AGPLv3
 URL:  https://github.com/redBorder/cookbook-rb-aioutliers
 Source0: %{name}-%{version}.tar.gz
+Requires: rb-aioutliers
 
 %description
 %{summary}
@@ -49,5 +50,7 @@ systemctl daemon-reload
 %doc
 
 %changelog
+* Thu Sep 26 2023 - Miguel Álvarez <malvarez@redborder.com> - 0.0.2-1
+- Update requirements of the cookbook
 * Mon Sep 25 2023 - Miguel Álvarez <malvarez@redborder.com> - 0.0.1-1
 - Initial spec version
