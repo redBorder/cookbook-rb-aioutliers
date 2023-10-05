@@ -4,7 +4,7 @@
 #
 action :add do
   begin
-    yum_package "rb-aioutliers" do
+    dnf_package "rb-aioutliers" do
       action :upgrade
       flush_cache[:before]
     end
