@@ -15,8 +15,8 @@ action :add do
 
     template "/opt/rb-aioutliers/resources/src/config.ini" do
       source "rb-aioutliers_config.yml.erb"
-      owner "root"
-      group "root"
+      owner "rb-aioutliers"
+      group "rb-aioutliers"
       mode 0644
       retries 2
       variables(
