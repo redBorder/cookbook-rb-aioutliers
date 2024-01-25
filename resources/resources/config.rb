@@ -3,5 +3,5 @@
 # Resource:: config
 #
 
-actions :add, :remove
+actions :add, :remove, :register, :deregister
 default_action :add
