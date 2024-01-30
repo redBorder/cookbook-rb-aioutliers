@@ -49,6 +49,8 @@ systemctl daemon-reload
 %doc
 
 %changelog
+* Thu Sep 26 2023 - Miguel Álvarez <malvarez@redborder.com> - 0.0.3-1
+- Delete rb-aioutliers dependency
 * Thu Sep 26 2023 - Miguel Álvarez <malvarez@redborder.com> - 0.0.2-1
 - Update requirements of the cookbook
 * Mon Sep 25 2023 - Miguel Álvarez <malvarez@redborder.com> - 0.0.1-1
