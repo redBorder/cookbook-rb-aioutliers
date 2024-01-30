@@ -1,4 +1,4 @@
-#Cookbook Name :: rbaioutliers
+# Cookbook:: :: rbaioutliers
 #
 # Resource:: config
 #
