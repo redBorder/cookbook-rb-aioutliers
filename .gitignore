@@ -10,3 +10,5 @@ bin/*
 
 packaging/rpm/SOURCES/*
 packaging/rpm/pkgs/*
+
+Gemfile.lock

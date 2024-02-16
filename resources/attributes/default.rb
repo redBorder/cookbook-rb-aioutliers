@@ -1,3 +1,3 @@
-#default attributes
+# default attributes
 #
-
+default['rb-aioutliers']['registered'] = false
