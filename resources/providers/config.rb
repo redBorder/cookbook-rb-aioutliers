@@ -69,7 +69,7 @@ action :register do
         action :nothing
       end.run_action(:run)
 
-      node.normal['rb-aioutliers']['registered'] = true
+      node.default['rb-aioutliers']['registered'] = true
       Chef::Log.info('rb-aioutliers service has been registered to consul')
     end
   rescue => e
@@ -85,7 +85,7 @@ action :deregister do
         action :nothing
       end.run_action(:run)
 
-      node.normal['rb-aioutliers']['registered'] = false
+      node.default['rb-aioutliers']['registered'] = false
       Chef::Log.info('rb-aioutliers service has been deregistered from consul')
     end
   rescue => e
