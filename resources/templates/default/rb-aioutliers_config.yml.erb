@@ -14,7 +14,12 @@ schedule_hour=* * * * *
 epochs=20
 batch_size=32
 backup_path=./backups/
-target_sensors=FlowSensor
+#target_sensors=FlowSensor
+model_names=traffic
+
+[ShallowOutliers]
+sensitivity=0.95
+contamination=0.01
 
 [Druid]
 druid_endpoint = http://<%=@druid_broker%>/druid/v2/
