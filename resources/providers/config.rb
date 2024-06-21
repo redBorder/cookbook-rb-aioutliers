@@ -17,6 +17,7 @@ action :add do
     rails_token = new_resource.rails_token
     sensitivity = new_resource.sensitivity
     contamination = new_resource.contamination
+    zk_name = new_resource.zk_name
 
     dnf_package 'rb-aioutliers' do
       action :upgrade
@@ -34,24 +35,24 @@ action :add do
     rescue => e
       Chef::Log.error("Error getting s3: #{e.message}")
     end
-    Chef::Log.error(("#"*12+"\n")*12)
+
     begin
       sensitivity=node["redborder"]["outliers"]["sensitivity"]
     rescue => e
       Chef::Log.error("Could not get sensitivity value: #{e.message}")
-      sensitivity=0.95
     end
 
     begin
       contamination=node["redborder"]["outliers"]["contamination"]
     rescue => e
       Chef::Log.error("Could not get contamination value: #{e.message}")
-      contamination=0.01
     end
-    Chef::Log.error("Contamination -> #{contamination}")
-    Chef::Log.error("Sensitivity -> #{sensitivity}")
-    Chef::Log.error("Node ----v----\n #{node["redborder"].keys}")
-    Chef::Log.error(("#"*12+"\n")*12)
+
+    begin
+      zk_name=node["name"]
+    rescue => e
+      Chef::Log.error("Could not get node name value: #{e.message}")
+    end
 
     begin
       rails_token = `echo "SELECT authentication_token FROM users WHERE id = 1;" | rb_psql redborder | awk 'NR==3 {print $1}' | tr -d '\n'`
@@ -77,7 +78,8 @@ action :add do
         rails_host: rails_host,
         rails_token: rails_token,
         sensitivity: sensitivity,
-        contamination: contamination
+        contamination: contamination,
+        zk_name: zk_name
       )
       cookbook 'rbaioutliers'
       notifies :restart, 'service[rb-aioutliers]', :delayed

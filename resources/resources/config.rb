@@ -17,7 +17,7 @@ attribute :s3_bucket, kind_of: String, default: 'mybucket'
 attribute :s3_access_key, kind_of: String, default: 'mykey'
 attribute :s3_secret_key, kind_of: String, default: 'mykey'
 attribute :zookeeper_hosts, kind_of: String, default: 'zookeeper.service:2181'
-attribute :zk_name, kind_of: String, default: "node_name"
+attribute :zk_name, kind_of: String, default: "node-name"
 attribute :rails_host, kind_of: String, default: 'webui.service'
 attribute :rails_token, kind_of: String, default: 'token'
 
