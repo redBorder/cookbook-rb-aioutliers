@@ -37,13 +37,15 @@ action :add do
     end
 
     begin
-      sensitivity=node["redborder"]["outliers"]["sensitivity"]
+      node_sens = node["redborder"]["outliers"]["sensitivity"]
+      sensitivity = node_sens if node_sens && !node_sens.empty?
     rescue => e
       Chef::Log.error("Could not get sensitivity value: #{e.message}")
     end
 
     begin
-      contamination=node["redborder"]["outliers"]["contamination"]
+      node_cont = node["redborder"]["outliers"]["contamination"]
+      contamination = node_cont if node_cont && !node_cont.empty?
     rescue => e
       Chef::Log.error("Could not get contamination value: #{e.message}")
     end
