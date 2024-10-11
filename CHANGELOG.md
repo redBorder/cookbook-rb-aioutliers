@@ -1,5 +1,11 @@
 cookbook-rb-aioutliers CHANGELOG
 ===============
+## 0.0.5
+ - José Navarro:
+    - [3122b36] Bump version
+    - Update and fix changelog.
+ - Pablo Rodriguez:
+    - [4abb00a]Updated config template
 
 ## 0.0.4
 
@@ -12,7 +18,7 @@ cookbook-rb-aioutliers CHANGELOG
     - [b061b69] Update README.md
     - [27123da] Update rpm.yml
     - [5296b0c] Update metadata.rb
-0.0.3
+## 0.0.3
 -----
 [malvarez]
 - Rhel9 version and use new configuration
