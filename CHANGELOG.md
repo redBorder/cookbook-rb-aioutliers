@@ -1,6 +1,11 @@
 cookbook-rb-aioutliers CHANGELOG
 ===============
+## 0.0.6
+ - José Navarro:
+   - Bump version and update changelog.
+       
 ## 0.0.5
+
  - José Navarro:
     - [3122b36] Bump version
     - Update and fix changelog.
