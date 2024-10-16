@@ -22,7 +22,10 @@ action :add do
       variables(
         druid_broker: druid_broker,
         log_file: log_file,
-        s3_hostname: s3_hostname
+        s3_hostname: s3_hostname,
+        s3_bucket: s3_bucket,
+        s3_access_key: s3_access_key,
+        s3_secret_key: s3_secret_key
       )
       cookbook 'rbaioutliers'
       notifies :restart, 'service[rb-aioutliers]', :delayed
