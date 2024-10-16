@@ -2,6 +2,19 @@
 #
 # Provider:: config
 #
+
+begin
+  s3 = data_bag_item('passwords', 's3')
+rescue
+  s3 = {}
+end
+
+unless s3.empty?
+  s3_bucket = s3['s3_bucket']
+  s3_access_key = s3['s3_access_key_id']
+  s3_secret_key = s3['s3_secret_key_id']
+end
+
 action :add do
   begin
     druid_broker = new_resource.druid_broker
