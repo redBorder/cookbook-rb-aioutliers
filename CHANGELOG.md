@@ -1,5 +1,10 @@
 cookbook-rb-aioutliers CHANGELOG
 ===============
+
+## 0.0.7
+  - ptorresred
+    - [622819e] Get s3 keys
+    - [2059401] Getting keys and buckets from s3 config
 ## 0.0.6
  - José Navarro:
    - Bump version and update changelog.
