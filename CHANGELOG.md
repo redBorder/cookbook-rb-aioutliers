@@ -1,6 +1,11 @@
 cookbook-rb-aioutliers CHANGELOG
 ===============
 
+## 0.0.8
+
+  - Rafael Gomez
+    - [46bd429] Update default druid_broker port to 8082 in config
+
 ## 0.0.7
   - ptorresred
     - [622819e] Get s3 keys
