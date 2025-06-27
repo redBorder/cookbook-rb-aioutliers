@@ -23,7 +23,6 @@ action :add do
 
     dnf_package 'rb-aioutliers' do
       action :upgrade
-      flush_cache[:before]
     end
 
     template '/opt/rb-aioutliers/resources/src/config.ini' do
