@@ -1,6 +1,11 @@
 cookbook-rb-aioutliers CHANGELOG
 ===============
 
+## 0.0.9
+
+  - nilsver
+    - [12232d2] remove flush cache
+
 ## 0.0.8
 
   - Rafael Gomez
