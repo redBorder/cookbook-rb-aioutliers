@@ -1,6 +1,11 @@
 cookbook-rb-aioutliers CHANGELOG
 ===============
 
+## 0.0.10
+
+  - Rafael Gomez
+    - [dd287f4] Add s3_secrets attribute to config resource and refactor action :add
+
 ## 0.0.9
 
   - nilsver
