@@ -1,6 +1,11 @@
 cookbook-rb-aioutliers CHANGELOG
 ===============
 
+## 0.0.11
+
+  - manegron
+    - [2d9cea8] Upload cookbook only if opscode-erchef is active
+
 ## 0.0.10
 
   - Rafael Gomez
