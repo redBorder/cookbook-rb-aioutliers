@@ -5,6 +5,7 @@
 
 action :add do
   begin
+    openbao = new_resource.openbao
     druid_broker = new_resource.druid_broker
     log_file = new_resource.log_file
     s3_hostname = new_resource.s3_hostname
@@ -20,22 +21,47 @@ action :add do
       action :upgrade
     end
 
-    template '/opt/rb-aioutliers/resources/src/config.ini' do
-      source 'rb-aioutliers_config.yml.erb'
-      owner 'rb-aioutliers'
-      group 'rb-aioutliers'
-      mode '644'
-      retries 2
-      variables(
-        druid_broker: druid_broker,
-        log_file: log_file,
-        s3_hostname: s3_hostname,
-        s3_bucket: s3_bucket,
-        s3_access_key: s3_access_key,
-        s3_secret_key: s3_secret_key
-      )
-      cookbook 'rbaioutliers'
-      notifies :restart, 'service[rb-aioutliers]', :delayed
+    if openbao
+      openbao_secret_file 'rb-aioutliers-config' do
+        source 'rb-aioutliers_config.yml.erb'
+        cookbook 'rbaioutliers'
+        variables(
+          druid_broker: druid_broker,
+          log_file: log_file,
+          s3_hostname: s3_hostname,
+          s3_bucket: s3_bucket,
+          s3_access_key: s3_access_key,
+          s3_secret_key: s3_secret_key
+        )
+        destination '/run/rb-secrets/rb-aioutliers/config.ini'
+        owner 'root'
+        group 'rb-aioutliers'
+        mode '0640'
+        unit 'rb-aioutliers'
+      end
+
+      link '/opt/rb-aioutliers/resources/src/config.ini' do
+        to '/run/rb-secrets/rb-aioutliers/config.ini'
+        notifies :restart, 'service[rb-aioutliers]', :delayed
+      end
+    else
+      template '/opt/rb-aioutliers/resources/src/config.ini' do
+        source 'rb-aioutliers_config.yml.erb'
+        owner 'rb-aioutliers'
+        group 'rb-aioutliers'
+        mode '644'
+        retries 2
+        variables(
+          druid_broker: druid_broker,
+          log_file: log_file,
+          s3_hostname: s3_hostname,
+          s3_bucket: s3_bucket,
+          s3_access_key: s3_access_key,
+          s3_secret_key: s3_secret_key
+        )
+        cookbook 'rbaioutliers'
+        notifies :restart, 'service[rb-aioutliers]', :delayed
+      end
     end
 
     service 'rb-aioutliers' do
