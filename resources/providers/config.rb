@@ -20,12 +20,9 @@ action :add do
       action :upgrade
     end
 
-    template '/opt/rb-aioutliers/resources/src/config.ini' do
+    openbao_secret_file 'rb-aioutliers-config' do
       source 'rb-aioutliers_config.yml.erb'
-      owner 'rb-aioutliers'
-      group 'rb-aioutliers'
-      mode '644'
-      retries 2
+      cookbook 'rbaioutliers'
       variables(
         druid_broker: druid_broker,
         log_file: log_file,
@@ -34,7 +31,15 @@ action :add do
         s3_access_key: s3_access_key,
         s3_secret_key: s3_secret_key
       )
-      cookbook 'rbaioutliers'
+      destination '/run/rb-secrets/rb-aioutliers/config.ini'
+      owner 'root'
+      group 'rb-aioutliers'
+      mode '0640'
+      unit 'rb-aioutliers'
+    end
+
+    link '/opt/rb-aioutliers/resources/src/config.ini' do
+      to '/run/rb-secrets/rb-aioutliers/config.ini'
       notifies :restart, 'service[rb-aioutliers]', :delayed
     end
 
